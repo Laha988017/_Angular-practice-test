@@ -1,0 +1,49 @@
+
+<div class="container-fluid p-5">
+  <div class="row">
+    <div class="col">
+      <form #f="ngForm" (ngSubmit)="submit(f)">
+        <div class="form-row align-items-center">
+          <div class="col-auto">
+            <label class="sr-only" for="name">Name</label>
+            <input ngModel name="name" type="text" class="form-control mb-2" id="name" placeholder="Subhajit">
+          </div>
+
+          <div class="col-auto">
+            <label class="sr-only" for="userName">Username</label>
+            <div class="input-group mb-2">
+              <div class="input-group-prepend">
+                <div class="input-group-text">@</div>
+              </div>
+              <input required ngModel name="userName" type="text" class="form-control" id="userName" placeholder="Username">
+            </div>
+          </div>
+          <div class="col-auto">
+            <label class="sr-only" for="dob">Date of Birth</label>
+            <input required ngModel name="dob" type="date" class="form-control mb-2" id="dob">
+          </div>
+          <div class="col-auto">
+            <div class="form-check mb-2">
+              <input ngModel name="rememberMe" class="form-check-input" type="checkbox" id="autoSizingCheck">
+              <label class="form-check-label" for="autoSizingCheck">
+                Remember me
+              </label>
+            </div>
+          </div>
+          <div class="col-auto">
+            <button type="submit" [disabled]="!f.valid" class="btn btn-primary mb-2">Submit</button>
+          </div>
+        </div>
+        <p>
+          {{f.value | json}}
+        </p>
+      </form>
+    </div>
+    <div class="col alert alert-warning">
+      <p>Name:{{name}}</p>
+      <p>UserName:{{userName}}</p>
+      <p>Date of Birth:{{dob | date:'shortDate'}}</p>
+      <p>Remember Me:{{rememberMe}}</p>
+    </div>
+  </div>
+</div>

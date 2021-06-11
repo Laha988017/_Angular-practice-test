@@ -1,0 +1,8 @@
+<h1>Interpolation : {{title}}</h1>
+<p [textContent]="textForBinding"></p>
+<button class="btn btn-primary" [class.btn-secondary]="isActive">Button color changed to btn-secondary if isActive=true</button><br>
+<button class="btn" [style.backgroundColor]="isActive?'red':'blue' ">Style Binding</button><br>
+<button (click)="btnClicked()" class="btn btn-warning">Toggle isActive</button>
+<h2>Two way binder</h2>
+<p>Write text to display here =>{{inputText}}</p>
+<input [(ngModel)]="inputText">
